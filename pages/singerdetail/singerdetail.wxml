@@ -1,0 +1,35 @@
+<view class="container">
+
+    <!-- 歌手图像 -->
+    <view class="imgshow">
+        <image mode="widthFix" src="{{singer_detail.artist.cover}}"></image>
+        <view class="txtbox">
+            <view class="name">{{singer.name}}</view>
+            <view class="txt">{{singer_detail.identify.imageDesc}}</view>
+            <view class="txt">网易云音乐-热门歌手</view>
+        </view>
+    </view>
+
+    <!-- 歌手简介 -->
+    <view class="title">歌手简介</view>
+    <view class="content">
+        {{singer_detail.artist.briefDesc}}
+    </view>
+
+    <!-- 歌手最热音乐 -->
+    <view class="title">最热音乐</view>
+    <view class="songlist">
+        <block wx:for="{{singer_songs}}" wx:key="id">
+            <view class="song-item">
+                <view class="textbox">
+                    <text class="mname">{{item.name}}</text>
+                    <text class="msinger">{{item.ar[0].name}}—{{item.al.name}}</text>
+                </view>
+                <view class="play-img" bindtap="playlink" data-index="{{index}}">
+                    <image src="/images/play.png"></image>
+                </view>
+            </view>
+        </block>
+    </view>
+
+</view>

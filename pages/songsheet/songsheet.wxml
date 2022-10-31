@@ -1,0 +1,35 @@
+<view class="container">
+
+    <!-- 歌单简介 -->
+    <view class="header">
+        <image class="bg" src="{{sheet_info.coverImgUrl}}"></image>
+        <view class="sheet-img">
+            <image src="{{sheet_info.coverImgUrl}}"></image>
+        </view>
+        <view class="sheet-text">
+            <text class="sheet-name">{{sheet_info.name}}</text>
+            <view class="author">
+                <image src="{{sheet_info.creator.avatarUrl}}"></image>
+                <text>{{sheet_info.creator.nickname}}</text>
+            </view>
+            <text class="sheet-dec" user-select="true">{{sheet_info.description}}</text>
+        </view>
+    </view>
+
+    <!-- 歌曲列表 -->
+    <view class="musiclist">
+        <view class="title">歌曲列表</view>
+        <block wx:for="{{sheet_songs}}" wx:key="s_id">
+            <view class="music-item">
+                <view class="textbox">
+                    <text class="mname">{{item.name}}</text>
+                    <text class="msinger">{{item.ar[0].name}}—{{item.al.name}}</text>
+                </view>
+                <view class="play-img" bindtap="playlink" data-index="{{index}}">
+                    <image src="/images/play.png"></image>
+                </view>
+            </view>
+        </block>
+    </view>
+
+</view>

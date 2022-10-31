@@ -1,0 +1,34 @@
+<view class="container">
+
+    <!-- 榜单简介 -->
+    <view class="header">
+        <view class="list-img">
+            <image src="{{cover_img}}"></image>
+        </view>
+        <view class="list-text">
+            <text class="list-name">{{list_name}}</text>
+            <view class="author">
+                <image src="{{creator_img}}"></image>
+                <text>{{creator_name}}</text>
+            </view>
+            <text class="list-dec">{{description}}</text>
+        </view>
+    </view>
+
+    <!-- 歌曲列表 -->
+    <view class="musiclist">
+        <view class="title">歌曲列表</view>
+        <block wx:for="{{song_list}}" wx:key="s_id">
+            <view class="music-item">
+                <view class="textbox">
+                    <text class="mname">{{item.name}}</text>
+                    <text class="msinger">{{item.ar[0].name}}—{{item.al.name}}</text>
+                </view>
+                <view class="play-img" bindtap="playlink" data-index="{{index}}">
+                    <image src="/images/play.png"></image>
+                </view>
+            </view>
+        </block>
+    </view>
+
+</view>

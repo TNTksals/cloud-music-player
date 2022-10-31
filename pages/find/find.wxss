@@ -1,0 +1,88 @@
+/* --------------------------- */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.search {
+    width: 90%;
+    margin: 20rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 50rpx;
+    background-color: #f7f7f7;
+}
+
+.search .search-icon {
+    margin: 10px 10px;
+    position: absolute;
+}
+
+.search .search-input {
+    margin-left: 35px;
+    height: 40px;
+    width: 85%;
+}
+
+/* -------------榜单------------ */
+
+.top-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx 20rpx;
+    /* background-color: red; */
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 300rpx;
+    margin: 5rpx 0rpx;
+    border-radius: 8rpx;
+    /* background-color: blueviolet; */
+}
+
+.list-item .item-img {
+    position: relative;
+    height: 250rpx;
+    margin: 0rpx 20rpx;
+    /* background-color: orange; */
+}
+
+.list-item .item-img>image {
+    display: block;
+    width: 250rpx;
+    height: 250rpx;
+    /* background-color: green; */
+}
+
+.list-item .item-img>text {
+    position: absolute;
+    bottom: 10rpx;
+    left: 20rpx;
+    font-size: 25rpx;
+    color: #ddd;
+}
+
+.list-item .item-song {
+    height: 250rpx;
+    width: 400rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: aqua; */
+}
+
+.list-item .item-song>text {
+    font-size: 30rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* --------------------------- */
+

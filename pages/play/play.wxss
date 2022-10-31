@@ -1,0 +1,181 @@
+/* --------------------------- */
+
+page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: black;
+}
+
+/* ------------背景图片------------ */
+
+.bg {
+    width: 160%;
+    height: 100%;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.4;
+    z-index: -1;
+    filter: blur(20rpx);
+}
+
+/* -------------头部------------- */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    /* background-color: royalblue; */
+}
+
+.header .music-name {
+    position: relative;
+    width: 80%;
+    text-align: center;
+    font-size: 40rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 80rpx;
+    color: #efefef;
+    /* background-color: yellow; */
+}
+
+.header .music-author {
+    position: relative;
+    width: 80%;
+    text-align: center;
+    font-size: 30rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: grey;
+    /* background-color: blue; */
+}
+
+/* ------------歌曲封面------------ */
+
+.section {
+    height: 65%;
+    padding: 30rpx 30rpx;
+    /* background-color: pink; */
+}
+
+swiper {
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.image-item {
+    display: flex;
+}
+
+.image-item>image{
+    display: block;
+    width: 350rpx;
+    height: 350rpx;
+    border-radius: 50%;
+    border: 70rpx solid #313131;
+    box-shadow: 3rpx 3rpx 30rpx black;
+    margin: auto;
+    animation: imgplay 20s linear infinite;
+}
+
+@keyframes imgplay {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------歌词-------------- */
+
+.text-item>scroll-view {
+    height: 100%;
+}
+
+.text-item>scroll-view view {
+    font-size: 30rpx;
+    line-height: 80rpx;
+    min-height: 60rpx;
+    text-align: center;
+    color: rgb(172, 172, 172);
+}
+
+.text-item>scroll-view .highlight {
+    font-size: 35rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ------------播放模式和进度条------------ */
+
+.playmode {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    height: 5%;
+    /* background-color: red; */
+}
+
+.playmode image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 10%;
+}
+
+.timebox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    /* background-color: lightskyblue; */
+}
+
+.timebox view {
+    font-size: 26rpx;
+    text-align: center;
+    color: #efefef;
+    /* background-color: red; */
+}
+
+.timebox slider {
+    width: 400rpx;
+    /* background-color: red; */
+}
+
+/* -------------底部按钮------------- */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 15%;
+    margin-bottom: 30rpx;
+    /* background-color: lightskyblue; */
+}
+
+.footer image {
+    width: 60rpx;
+    height: 60rpx;
+    /* background-color: red; */
+}
+
+.footer>image:nth-of-type(2) {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+/* --------------------------- */

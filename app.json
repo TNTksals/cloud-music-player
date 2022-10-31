@@ -1,0 +1,37 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/find/find",
+        "pages/singerdetail/singerdetail",
+        "pages/songsheet/songsheet",
+        "pages/play/play",
+        "pages/listdetail/listdetail"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#c20c0c",
+        "navigationBarTitleText": "云音乐",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#777777",
+        "backgroundColor": "#f7f7f7",
+        "selectedColor": "#c20c02",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "音乐",
+                "iconPath": "/images/index.png",
+                "selectedIconPath": "/images/index_active.png"
+            },
+            {
+                "pagePath": "pages/find/find",
+                "text": "发现",
+                "iconPath": "/images/find.png",
+                "selectedIconPath": "/images/find_active.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

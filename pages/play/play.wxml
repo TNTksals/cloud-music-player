@@ -1,0 +1,48 @@
+<view class="container">
+
+    <!-- 背景图片 -->
+    <image class="bg" src="{{music_info.al.picUrl}}"></image>
+
+    <!-- 头部 -->
+    <view class="header">
+        <view class="music-name">{{music_info.name}}</view>
+        <view class="music-author">{{music_info.ar[0].name}}</view>
+    </view>
+
+    <!-- 主体 -->
+    <view class="section">
+        <swiper>
+            <swiper-item class="image-item">
+                <image src="{{music_info.al.picUrl}}" style="animation-play-state: {{isplay ? 'running' : 'paused'}};"></image>
+            </swiper-item>
+            <swiper-item class="text-item">
+                <scroll-view scroll-y="true" scroll-top="{{lrctop}}">
+                    <block wx:for="{{lrclist}}" wx:key="time" wx:for-index="in">
+                        <view class="{{in == lrcindex ? 'highlight' : ''}}">{{item.lrc}}</view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 播放模式 -->
+    <view class="playmode">
+        <image src="/images/{{isloop ? 'circle' : 'linear'}}.png" bindtap="changePlayMode"></image>
+    </view>
+
+    <!-- 进度条 -->
+    <view class="timebox">
+        <view>{{fcur_time}}</view>
+        <slider disabled="true" block-size="10" min="0" max="{{duration.m * 60 + duration.s}}" 
+        value="{{cur_time.m * 60 + cur_time.s}}"></slider>
+        <view>{{fduration}}</view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="footer">
+        <image src="/images/pre.png" bindtap="predate"></image>
+        <image src="/images/{{isplay ? 'pause' : 'play'}}.png" bindtap="playdate"></image>
+        <image src="/images/next.png" bindtap="nextdate"></image>
+    </view>
+
+</view>

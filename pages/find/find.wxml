@@ -1,0 +1,28 @@
+<view class="container">
+
+    <view class="header">
+        <view class="search">
+            <icon class="search-icon" type="search" size="20"></icon>
+            <input class="search-input" type="text" placeholder="搜索歌曲" confirm-type="search" disabled="true" />
+        </view>
+    </view>
+
+    <view class="section">
+        <view class="top-list">
+            <block wx:for="{{top_list}}" wx:key="id">
+                <view class="list-item" bindtap="listlink" data-index="{{index}}">
+                    <view class="item-img">
+                        <image src="{{item.coverImgUrl}}"></image>
+                        <text>{{item.updateFrequency}}</text>
+                    </view>
+                    <view class="item-song">
+                        <block wx:for="{{item.tracks}}" wx:key="first">
+                            <text>{{index + 1}} {{item.first}}—{{item.second}}</text>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+</view>
