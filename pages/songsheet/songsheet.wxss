@@ -9,7 +9,7 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: -1;
     filter: blur(40rpx);
 }
@@ -80,7 +80,7 @@
 .sheet-text .sheet-dec {
     font-size: 25rpx;
     display: -webkit-box; 
-    overflow: hidden;
+    overflow: scroll;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
