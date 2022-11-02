@@ -118,7 +118,7 @@
 .music-item .textbox {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    width: 88%;
     /* background-color: pink; */
 }
 
