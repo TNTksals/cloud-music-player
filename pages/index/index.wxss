@@ -135,8 +135,8 @@ page {
 .music-list .music-item .textbox {
     display: flex;
     flex-direction: column;
-    width: 85%;
-    /* background-color: black; */
+    flex: 1;
+    /* background-color: pink; */
 }
 
 .music-list .music-item .play-img {
