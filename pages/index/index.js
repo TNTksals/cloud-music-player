@@ -94,8 +94,8 @@ Page({
     // 点击播放按钮跳转
     playlink: function (e) {
         const index = e.currentTarget.dataset.index
-        const song = this.data.new_music
-        let mid = song[index].id
+        const songs = this.data.new_music
+        let mid = songs[index].id
         // 检测歌曲是否可以播放
         wx.request({
             url: 'https://autumnfish.cn/check/music?id=' + mid,
@@ -105,7 +105,7 @@ Page({
                 if (res.data.message === 'ok') 
                 {
                     const objdata = {}
-                    objdata.musiclist = song
+                    objdata.musiclist = songs
                     objdata.nowindex = index
                     // console.log(objdata)
                     wx.navigateTo({
