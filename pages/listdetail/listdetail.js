@@ -61,8 +61,8 @@ Page({
     // 点击播放按钮跳转
     playlink: function (e) {
         const index = e.currentTarget.dataset.index
-        const song = this.data.music_list
-        let mid = song[index].id
+        const songs = this.data.song_list
+        let mid = songs[index].id
         // 检测歌曲是否可以播放
         wx.request({
             url: 'https://autumnfish.cn/check/music?id=' + mid,
@@ -71,7 +71,7 @@ Page({
                 // console.log(res.data)
                 if (res.data.message === 'ok') {
                     const objdata = {}
-                    objdata.musiclist = song
+                    objdata.musiclist = songs
                     objdata.nowindex = index
                     // console.log(objdata)
                     wx.navigateTo({
@@ -82,7 +82,8 @@ Page({
                             })
                         }
                     })
-                } else {
+                } 
+                else {
                     wx.showModal({
                         showCancel: true,
                         content: '歌曲没有版权，请选择其他歌曲进行播放',
@@ -150,12 +151,5 @@ Page({
             offset: this.data.offset + 10
         })
         this.getListSongs()
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
     }
 })

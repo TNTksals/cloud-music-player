@@ -16,12 +16,12 @@
     </view>
 
     <!-- 歌曲列表 -->
-    <view class="musiclist">
+    <view class="music-list">
         <view class="title">歌曲列表</view>
         <block wx:for="{{song_list}}" wx:key="s_id">
             <view class="music-item">
                 <view class="textbox">
-                    <text class="mname">{{item.name}}</text>
+                    <text class="mname">{{item.name}}{{item.alia[0]?'('+item.alia[0]+')':''}}</text>
                     <text class="msinger">{{item.ar[0].name}}—{{item.al.name}}</text>
                 </view>
                 <view class="play-img" bindtap="playlink" data-index="{{index}}">
