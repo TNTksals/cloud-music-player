@@ -58,7 +58,7 @@ page {
 .hot-list .hot-item {
     width: 200rpx;
     text-align: center;
-    margin: 0rpx 10rpx;
+    margin: 0rpx 20rpx;
 }
 
 .hot-list .hot-item>image {
