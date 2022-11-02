@@ -2,7 +2,7 @@
 
     <!-- 轮播图区域 -->
     <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="rgba(194, 12, 12, 1)" autoplay="true" interval="3000" duration="1000" circular="true" class="banner">
-        <block wx:for="{{background}}" wx:key="targetId">
+        <block wx:for="{{swiper_img}}" wx:key="targetId">
             <swiper-item class="banner-item">
                 <image src="{{item.pic}}"></image>
             </swiper-item>
@@ -11,9 +11,9 @@
 
     <!-- 热门歌手区域 -->
     <view class="title">热门歌手</view>
-    <view class="hotlist">
+    <view class="hot-list">
         <block wx:for="{{hot_singer}}" wx:key="id">
-            <view class="hot-item" data-index="{{index}}" bindtap="hotlink">
+            <view class="hot-item" bindtap="goToSingerDetail" data-index="{{index}}">
                 <image src="{{item.img1v1Url}}"></image>
                 <text>{{item.name}}</text>
             </view>
@@ -22,9 +22,9 @@
 
     <!-- 推荐歌单区域 -->
     <view class="title">推荐歌单</view>
-    <view class="songsheetlist">
+    <view class="sheet-list">
         <block wx:for="{{song_sheet}}" wx:key="id">
-            <view class="sheet-item" bindtap="sheetlink" data-index="{{index}}">
+            <view class="sheet-item" bindtap="goToSongSheet" data-index="{{index}}">
                 <image src="{{item.picUrl}}"></image>
                 <text>{{item.name}}</text>
             </view>
@@ -33,7 +33,7 @@
 
     <!-- 最新音乐 -->
     <view class="title">最新音乐</view>
-    <view class="musiclist">
+    <view class="music-list">
         <block wx:for="{{new_music}}" wx:key="id">
             <view class="music-item">
                 <view class="textbox">
@@ -41,7 +41,7 @@
                     <text class="msinger">{{item.song.artists[0].name}}{{item.song.album.name ? '—' : ''}}{{item.song.album.name}}
                     </text>
                 </view>
-                <view class="play-img" bindtap="playlink" data-index="{{index}}">
+                <view class="play-img" bindtap="playbtn" data-index="{{index}}">
                     <image src="/images/play.png"></image>
                 </view>
             </view>

@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        background: [],
+        swiper_img: [],
         hot_singer: [],
         song_sheet: [],
         new_music: []
@@ -19,7 +19,7 @@ Page({
             success: (res) => {
                 // console.log(res)
                 this.setData({
-                    background: res.data.banners
+                    swiper_img: res.data.banners
                 })
             }
         })
@@ -68,7 +68,7 @@ Page({
     },
 
     // 点击歌手跳转页面
-    hotlink: function (e) {
+    goToSingerDetail: function (e) {
         const index = e.currentTarget.dataset.index
         const singerdata = this.data.hot_singer
         wx.navigateTo({
@@ -80,7 +80,7 @@ Page({
     },
 
     // 点击歌单跳转
-    sheetlink: function(e) {
+    goToSongSheet: function(e) {
         const index = e.currentTarget.dataset.index
         const sheet_id = this.data.song_sheet[index].id
         wx.navigateTo({
@@ -92,7 +92,7 @@ Page({
     },
 
     // 点击播放按钮跳转
-    playlink: function (e) {
+    playbtn: function (e) {
         const index = e.currentTarget.dataset.index
         const song = this.data.new_music
         let mid = song[index].id
@@ -133,10 +133,6 @@ Page({
         this.getHotSinger()
         this.getNewMusic()
         this.getSongSheet()
-    },
-
-    // 监听页面初次渲染完成
-    onReady: function (options) {
-
     }
+    
 })
