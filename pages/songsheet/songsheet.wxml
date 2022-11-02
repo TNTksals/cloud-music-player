@@ -17,7 +17,7 @@
     </view>
 
     <!-- 歌曲列表 -->
-    <view class="musiclist">
+    <view class="music-list">
         <view class="title">歌曲列表</view>
         <block wx:for="{{sheet_songs}}" wx:key="s_id">
             <view class="music-item">

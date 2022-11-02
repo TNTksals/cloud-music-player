@@ -9,9 +9,9 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.8;
+    opacity: 0.9;
     z-index: -1;
-    filter: blur(40rpx);
+    filter: blur(30rpx);
 }
 
 /* ------------歌单简介------------ */
@@ -98,13 +98,13 @@
     background-color: gainsboro;
 }
 
-.musiclist {
+.music-list {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.music-item {
+.music-list .music-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -115,25 +115,14 @@
     background-color: #f7f7f7;
 }
 
-.textbox {
+.music-item .textbox {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    flex: 1;
+    /* background-color: pink; */
 }
 
-.play-img {
-    width: 80rpx;
-    height: 100%;
-    display: flex;
-}
-
-.play-img>image {
-    width: 60rpx;
-    height: 60rpx;
-    margin: auto;
-}
-
-.music-item .textbox .mname {
+.textbox .mname {
     width: 600rpx;
     font-size: 33rpx;
     white-space: nowrap;
@@ -141,12 +130,24 @@
     text-overflow: ellipsis;
 }
 
-.music-item .textbox .msinger {
+.textbox .msinger {
     font-size: 25rpx;
     color: #777;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.music-item .play-img {
+    width: 70rpx;
+    height: 100%;
+    display: flex;
+}
+
+.play-img>image {
+    width: 50rpx;
+    height: 50rpx;
+    margin: auto;
 }
 
 /* --------------------------- */
