@@ -4,14 +4,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        singer: {},
+        singer_name: '',
+        singer_id: 0,
         singer_detail: {},
-        singer_songs: []
+        hot_songs: []
     },
 
     // 获取歌手详情
     getSingerDetail: function () {
-        let sid = this.data.singer.id
+        let sid = this.data.singer_id
         wx.request({
             url: 'https://autumnfish.cn/artist/detail?id=' + sid,
             method: 'GET',
@@ -25,15 +26,15 @@ Page({
     },
 
     // 获取歌手热门歌曲
-    getSingerSongs: function () {
-        let sid = this.data.singer.id
+    getSingerHotSongs: function () {
+        let sid = this.data.singer_id
         wx.request({
             url: 'https://autumnfish.cn/artist/top/song?id=' + sid,
             method: 'GET',
             success: (res) => {
                 // console.log(res)
                 this.setData({
-                    singer_songs: res.data.songs
+                    hot_songs: res.data.songs
                 })
             }
         })
@@ -42,8 +43,8 @@ Page({
     // 点击播放按钮跳转
     playlink: function (e) {
         const index = e.currentTarget.dataset.index
-        const song = this.data.singer_songs
-        let mid = song[index].id
+        const songs = this.data.hot_songs
+        let mid = songs[index].id
         // 检测歌曲是否可以播放
         wx.request({
             url: 'https://autumnfish.cn/check/music?id=' + mid,
@@ -53,7 +54,7 @@ Page({
                 if (res.data.message === 'ok')
                 {
                     const objdata = {}
-                    objdata.musiclist = song
+                    objdata.musiclist = songs
                     objdata.nowindex = index
                     // console.log(objdata)
                     wx.navigateTo({
@@ -87,12 +88,13 @@ Page({
         // 获取页面传输过来的歌手基本数据并进行了存储
         const eventChannel = this.getOpenerEventChannel()
         eventChannel.on('acceptDataFromOpenerPage', data => {
-            // console.log(data)
+            console.log(data)
             this.setData({
-                singer: data.data
+                singer_name: data.data.name,
+                singer_id: data.data.id
             })
             this.getSingerDetail()
-            this.getSingerSongs()
+            this.getSingerHotSongs()
             wx.hideLoading()
         })
     },
@@ -102,7 +104,7 @@ Page({
      */
     onReady() {
         wx.setNavigationBarTitle({
-            title: this.data.singer.name,
+            title: this.data.singer_name,
         })
     },
 
