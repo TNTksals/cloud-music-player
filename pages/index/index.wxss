@@ -58,7 +58,7 @@ page {
 .hot-list .hot-item {
     width: 200rpx;
     text-align: center;
-    margin: 0rpx 20rpx;
+    margin: 0rpx 10rpx;
 }
 
 .hot-list .hot-item>image {
@@ -135,7 +135,7 @@ page {
 .music-list .music-item .textbox {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    width: 88%;
     /* background-color: pink; */
 }
 
