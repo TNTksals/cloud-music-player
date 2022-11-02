@@ -92,7 +92,7 @@ Page({
     },
 
     // 点击播放按钮跳转
-    playbtn: function (e) {
+    playlink: function (e) {
         const index = e.currentTarget.dataset.index
         const song = this.data.new_music
         let mid = song[index].id

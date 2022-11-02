@@ -41,7 +41,7 @@
                     <text class="msinger">{{item.song.artists[0].name}}{{item.song.album.name ? '—' : ''}}{{item.song.album.name}}
                     </text>
                 </view>
-                <view class="play-img" bindtap="playbtn" data-index="{{index}}">
+                <view class="play-img" bindtap="playlink" data-index="{{index}}">
                     <image src="/images/play.png"></image>
                 </view>
             </view>
