@@ -6,7 +6,7 @@
 .bg {
     width: 160%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.9;
@@ -74,7 +74,7 @@
 
 .sheet-text .author>text {
     font-size: 28rpx;
-    color: #666;
+    color: #333;
 }
 
 .sheet-text .sheet-dec {
