@@ -1,7 +1,15 @@
 <view class="container">
 
+    <!-- 搜索框 -->
+    <view class="header">
+        <view class="search" bindtap="goToSearch">
+            <icon class="search-icon" type="search" size="20"></icon>
+            <input class="search-input" type="text" placeholder="搜索歌曲" confirm-type="search" disabled="true" />
+        </view>
+    </view>
+
     <!-- 轮播图区域 -->
-    <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="rgba(194, 12, 12, 1)" autoplay="true" interval="3000" duration="1000" circular="true" class="banner">
+    <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="rgba(194, 12, 12, 1)" autoplay="true" interval="3000" duration="800" circular="true" class="banner">
         <block wx:for="{{swiper_img}}" wx:key="targetId">
             <swiper-item class="banner-item">
                 <image src="{{item.pic}}"></image>

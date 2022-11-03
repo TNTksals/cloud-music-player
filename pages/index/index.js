@@ -67,6 +67,13 @@ Page({
         })
     },
 
+    // 点击搜索框跳转
+    goToSearch: function () {
+        wx.navigateTo({
+            url: '/pages/search/search'
+        })
+    },
+
     // 点击歌手跳转页面
     goToSingerDetail: function (e) {
         const index = e.currentTarget.dataset.index

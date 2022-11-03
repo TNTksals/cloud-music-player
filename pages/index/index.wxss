@@ -1,16 +1,45 @@
 /* --------------------------- */
 
 page {
-    padding: 10rpx;
     box-sizing: border-box;
+}
+
+/* ------------头部搜索框------------ */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.search {
+    width: 100%;
+    margin: 20rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 50rpx;
+    background-color: #f7f7f7;
+}
+
+.search .search-icon {
+    margin: 10px 10px;
+    position: absolute;
+    /* background-color: black; */
+}
+
+.search .search-input {
+    margin-left: 35px;
+    height: 40px;
+    width: 85%;
 }
 
 /* ------------轮播图区域------------ */
 
 .banner {
     height: 320rpx;
-    background-color: rgb(240, 240, 240);
+    padding: 10rpx;
     border-radius: 15rpx;
+    background-color: rgb(240, 240, 240);
     /* background-color: aquamarine; */
 }
 
@@ -48,6 +77,7 @@ page {
 .hot-list {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     overflow-x: scroll;
     width: 100%;
@@ -56,9 +86,11 @@ page {
 }
 
 .hot-list .hot-item {
-    width: 200rpx;
+    width: 250rpx;
     text-align: center;
-    margin: 0rpx 10rpx;
+    padding-left: 20rpx;
+    padding-right: 10rpx;
+    /* background-color: palegreen; */
 }
 
 .hot-list .hot-item>image {
