@@ -6,8 +6,8 @@ Page({
      */
     data: {
         audio: null,
-        musiclist: [],
-        nowindex: 0,
+        music_list: [],
+        cur_index: 0,
         cur_music: {},
         music_info: {},
         lrclist: [],
@@ -16,9 +16,9 @@ Page({
         isplay: true,
         isloop: false,
         duration: {},
-        fduration: '',
+        fduration: '00:00',
         cur_time: {},
-        fcur_time: ''
+        fcur_time: '00:00'
     },
 
     // 获取歌曲详情
@@ -85,7 +85,8 @@ Page({
             audio: wx.createInnerAudioContext()
         })
         let mid = this.data.cur_music.id
-        this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid
+        this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + 
+        '&level=exhigh'
         this.observeAudio()
     },
 
@@ -156,7 +157,8 @@ Page({
             if (this.data.isloop) {
                 this.data.audio.stop()
                 this.observeAudio()
-            } else
+            } 
+            else
                 this.nextdate()
         })
     },
@@ -173,21 +175,21 @@ Page({
     // 上一首按钮控制
     predate: function () {
         this.data.audio.pause()
-        let cur_index = this.data.nowindex === 0 ?
-            this.data.musiclist.length - 1 : this.data.nowindex - 1
-        let mid = this.data.musiclist[cur_index].id
+        let index = this.data.cur_index === 0 ?
+            this.data.music_list.length - 1 : this.data.cur_index - 1
+        let mid = this.data.music_list[index].id
         wx.request({
             url: 'https://autumnfish.cn/check/music?id=' + mid,
             method: 'GET',
             success: (res) => {
                 if (res.data.message === 'ok') {
                     this.setData({
-                        nowindex: cur_index,
-                        cur_music: this.data.musiclist[cur_index]
+                        cur_index: index,
+                        cur_music: this.data.music_list[index]
                     })
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
-                    this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid
+                    this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 }
                 else {
@@ -204,21 +206,21 @@ Page({
     // 下一首按钮控制
     nextdate: function () {
         this.data.audio.pause()
-        let cur_index = this.data.nowindex === this.data.musiclist.length - 1 ?
-            0 : this.data.nowindex + 1
-        let mid = this.data.musiclist[cur_index].id
+        let index = this.data.cur_index === this.data.music_list.length - 1 ?
+            0 : this.data.cur_index + 1
+        let mid = this.data.music_list[index].id
         wx.request({
             url: 'https://autumnfish.cn/check/music?id=' + mid,
             method: 'GET',
             success: (res) => {
                 if (res.data.message === 'ok') {
                     this.setData({
-                        nowindex: cur_index,
-                        cur_music: this.data.musiclist[cur_index],
+                        cur_index: index,
+                        cur_music: this.data.music_list[index],
                     })
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
-                    this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid
+                    this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 } 
                 else {
@@ -249,8 +251,8 @@ Page({
         eventChannel.on('acceptDataFromOpenerPage', objdata => {
             // console.log(objdata)
             this.setData({
-                musiclist: objdata.data.musiclist,
-                nowindex: objdata.data.nowindex,
+                music_list: objdata.data.musiclist,
+                cur_index: objdata.data.nowindex,
                 cur_music: objdata.data.musiclist[objdata.data.nowindex]
             })
             this.getSongInfo()

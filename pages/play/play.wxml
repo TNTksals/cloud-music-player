@@ -18,7 +18,7 @@
             <swiper-item class="text-item">
                 <scroll-view scroll-y="true" scroll-top="{{lrctop}}">
                     <block wx:for="{{lrclist}}" wx:key="time" wx:for-index="in">
-                        <view class="{{in == lrcindex ? 'highlight' : ''}}">{{item.lrc}}</view>
+                        <view class="{{in === lrcindex ? 'highlight' : ''}}">{{item.lrc}}</view>
                     </block>
                 </scroll-view>
             </swiper-item>
