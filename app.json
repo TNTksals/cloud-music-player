@@ -5,7 +5,8 @@
         "pages/singerdetail/singerdetail",
         "pages/songsheet/songsheet",
         "pages/play/play",
-        "pages/listdetail/listdetail"
+        "pages/listdetail/listdetail",
+        "pages/search/search"
     ],
     "window": {
         "backgroundTextStyle": "dark",
@@ -32,6 +33,7 @@
             }
         ]
     },
+    "lazyCodeLoading": "requiredComponents",
     "style": "v2",
     "sitemapLocation": "sitemap.json"
 }
