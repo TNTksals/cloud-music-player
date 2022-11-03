@@ -1,0 +1,140 @@
+/* --------------------------- */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c20c0c;
+}
+
+.search {
+    position: relative;
+    width: 90%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 50rpx;
+    background-color: #f7f7f7;
+}
+
+.search .search-icon {
+    position: absolute;
+    left: 3%;
+    margin: auto;
+    /* background-color: lightseagreen; */
+}
+
+.search .search-input {
+    position: relative;
+    left: 10%;
+    height: 80rpx;
+    width: 80%;
+    /* background-color: lightskyblue; */
+}
+
+.search .clear-icon {
+    position: absolute;
+    right: 3%;
+    margin: auto;
+    /* background-color: lightcoral; */
+}
+
+/* ------------搜索结果------------ */
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* border: 2px solid greenyellow; */
+}
+
+.music-list .music-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10rpx 20rpx;
+    border-top: 1rpx solid rgb(236, 236, 236);
+    border-bottom: 1rpx solid rgb(236, 236, 236);
+}
+
+.music-list .music-item .textbox {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    /* background-color: pink; */
+}
+
+.music-list .music-item .play-img {
+    width: 70rpx;
+    height: 100%;
+    display: flex;
+    /* background-color: brown; */
+}
+
+.music-item .play-img>image {
+    width: 50rpx;
+    height: 50rpx;
+    margin: auto;
+}
+
+.music-item .textbox .mname {
+    width: 600rpx;
+    font-size: 33rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-item .textbox .msinger {
+    font-size: 25rpx;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ------------搜索历史------------ */
+
+.history-search {
+    padding: 0rpx 20rpx;
+    /* background-color: lightgreen; */
+}
+
+.history-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80rpx;
+    font-size: 28rpx;
+    border-bottom: 2rpx solid #efefef;
+    /* background-color: pink; */
+}
+
+.history-title>image {
+    height: 34rpx;
+    width: 34rpx;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.history-list .history-item {
+    font-size: 30rpx;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    margin-top: 20rpx;
+    margin-right: 20rpx;
+    background-color: #f7f7f7;
+}
+
+/* ------------热搜列表------------ */
+
+/* --------------------------- */

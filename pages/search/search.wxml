@@ -1,0 +1,57 @@
+<view class="container">
+
+    <!-- 搜索框 -->
+    <view class="header">
+        <view class="search">
+            <icon class="search-icon" type="search" size="40rpx"></icon>
+            <input class="search-input" type="text" placeholder="搜索歌曲" confirm-type="search" focus="true" bindconfirm="getSearchResult" value="{{keyword}}" bindinput="getKeyWord"/>
+            <icon class="clear-icon" type="clear" size="40rpx" bindtap="clearValue"
+            wx:if="{{keyword.length !== 0}}"></icon>
+        </view>
+    </view>
+
+    <view class="section">
+
+        <!-- 搜索结果 -->
+        <view class="search-result" wx:if="{{search_res.length !== 0}}">
+            <view class="music-list">
+                <block wx:for="{{search_res}}" wx:key="id">
+                    <view class="music-item">
+                        <view class="textbox">
+                            <text class="mname">{{item.name}}{{item.alia[0]?'('+item.alia[0]+')':''}}</text>
+                            <text class="msinger">{{item.ar[0].name}}{{item.al.name?'—' + item.al.name:''}}
+                            </text>
+                        </view>
+                        <view class="play-img" bindtap="playlink" data-index="{{index}}">
+                            <image src="/images/play.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <!-- 搜索历史 -->
+        <view class="history-search" 
+        wx:if="{{search_res.length === 0 && history_search.length !== 0}}">
+            <view class="history-title">
+                <text class="title">搜索历史</text>
+                <image src="/images/clear.png" bindtap="clearHistory"></image>
+            </view>
+            <view class="history-list">
+                <block wx:for="{{history_search}}" wx:key="this">
+                    <view class="history-item" bindtap="goToSearch" data-kw="{{item}}">
+                        <text>{{item}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <!-- 热搜榜 -->
+        <view class="hot-search" wx:if="{{search_res.length === 0}}">
+            <view>
+            
+            </view>
+        </view>
+    </view>
+
+</view>
