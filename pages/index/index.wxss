@@ -42,7 +42,6 @@ page {
     height: 320rpx;
     padding: 10rpx;
     border-radius: 15rpx;
-    background-color: rgb(240, 240, 240);
     /* background-color: aquamarine; */
 }
 
