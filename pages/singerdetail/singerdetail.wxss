@@ -24,13 +24,13 @@
 
 .txtbox .name {
     font-size: 50rpx;
-    color: #efefef;
-    font-weight: bold;
+    color: white;
+    text-shadow: white 0 0 3rpx;
 }
 
 .txtbox .txt {
     font-size: 30rpx;
-    color: #999;
+    color: #666;
 }
 
 .title {
@@ -42,8 +42,6 @@
     margin-top: 30rpx;
     text-indent: 30rpx;
 }
-
-/* ------------歌手简介------------ */
 
 .content {
     font-size: 28rpx;
@@ -73,8 +71,8 @@
 .music-item .textbox {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    /* background-color: red; */
+    width: 87%;
+    /* background-color: pink; */
 }
 
 .textbox .mname {
@@ -83,6 +81,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    /* background-color: powderblue; */
 }
 
 .textbox .msinger {

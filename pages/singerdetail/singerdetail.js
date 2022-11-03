@@ -88,7 +88,7 @@ Page({
         // 获取页面传输过来的歌手基本数据并进行了存储
         const eventChannel = this.getOpenerEventChannel()
         eventChannel.on('acceptDataFromOpenerPage', data => {
-            console.log(data)
+            // console.log(data)
             this.setData({
                 singer_name: data.data.name,
                 singer_id: data.data.id
@@ -134,12 +134,5 @@ Page({
      */
     onPullDownRefresh() {
 
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
+    }
 })
