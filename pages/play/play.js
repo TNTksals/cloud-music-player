@@ -82,9 +82,11 @@ Page({
     // 初始化播放器
     audioInit: function () {
         this.setData({
-            audio: wx.createInnerAudioContext()
+            audio: wx.getBackgroundAudioManager()
+            // audio: wx.createInnerAudioContext()
         })
         let mid = this.data.cur_music.id
+        this.data.audio.title = this.data.cur_music.name
         this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + 
         '&level=exhigh'
         this.observeAudio()
@@ -189,6 +191,7 @@ Page({
                     })
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
+                    this.data.audio.title = this.data.cur_music.name
                     this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 }
@@ -220,6 +223,7 @@ Page({
                     })
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
+                    this.data.audio.title = this.data.cur_music.name
                     this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 } 
