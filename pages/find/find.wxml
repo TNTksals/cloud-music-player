@@ -1,16 +1,19 @@
 <view class="container">
 
+    <!-- 搜索框 -->
     <view class="header">
-        <view class="search">
+        <view class="search" bindtap="goToSearch">
             <icon class="search-icon" type="search" size="20"></icon>
             <input class="search-input" type="text" placeholder="搜索歌曲" confirm-type="search" disabled="true" />
         </view>
     </view>
 
+    <!-- 榜单 -->
     <view class="section">
+        <view class="title">云音乐特色榜</view>
         <view class="top-list">
             <block wx:for="{{top_list}}" wx:key="id">
-                <view class="list-item" bindtap="listlink" data-index="{{index}}">
+                <view class="top-item" bindtap="listlink" data-index="{{index}}" data-tag="1">
                     <view class="item-img">
                         <image src="{{item.coverImgUrl}}"></image>
                         <text>{{item.updateFrequency}}</text>
@@ -20,6 +23,15 @@
                             <text>{{index + 1}} {{item.first}}—{{item.second}}</text>
                         </block>
                     </view>
+                </view>
+            </block>
+        </view>
+        <view class="title">全球媒体榜</view>
+        <view class="global-list">
+            <block wx:for="{{global_list}}" wx:key="id">
+                <view class="global-item" bindtap="listlink" data-index="{{index}}" data-tag="2">
+                    <image src="{{item.coverImgUrl}}"></image>
+                    <text>{{item.name}}</text>
                 </view>
             </block>
         </view>

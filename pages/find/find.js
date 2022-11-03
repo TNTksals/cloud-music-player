@@ -5,46 +5,50 @@ Page({
      * 页面的初始数据
      */
     data: {
-        hot_list: [],
-        top_list: []
+        all_list: [],
+        top_list: [],
+        global_list: []
     },
 
-    // 获取热搜列表
-    getHotSearch: function () {
-        wx.request({
-            url: 'https://autumnfish.cn/search/hot',
-            method: 'GET',
-            success: (res) => {
-                // console.log(res)
-                this.setData({
-                    hot_list: res.data.result.hots
-                })
-            }
+    // 点击搜索框跳转
+    goToSearch: function () {
+        wx.navigateTo({
+            url: '/pages/search/search'
         })
     },
 
     // 获取所有榜单内容摘要
     getTopListDetail: function () {
+        wx.showLoading({
+          title: '数据加载中...',
+        })
         wx.request({
             url: 'https://autumnfish.cn/toplist/detail',
             method: 'GET',
             success: (res) => {
                 // console.log(res)
                 this.setData({
-                    top_list: res.data.list
+                    all_list: res.data.list,
+                    top_list: res.data.list.slice(0, 4),
+                    global_list: res.data.list.slice(4)
                 })
+                wx.hideLoading()
             }
         })
     },
 
     // 点击榜单跳转
-    listlink: function(e) {
+    listlink: function (e) {
+        // console.log(e)
+        let tag = e.currentTarget.dataset.tag
         const index = e.currentTarget.dataset.index
-        const list_id = this.data.top_list[index].id
+        const list_id = tag === 1 ? this.data.top_list[index].id : this.data.global_list[index].id
         wx.navigateTo({
             url: '/pages/listdetail/listdetail',
             success: (res) => {
-                res.eventChannel.emit('acceptDataFromOpenerPage', { data: list_id })
+                res.eventChannel.emit('acceptDataFromOpenerPage', {
+                    data: list_id
+                })
             }
         })
     },
@@ -53,7 +57,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.getHotSearch()
         this.getTopListDetail()
     },
 
