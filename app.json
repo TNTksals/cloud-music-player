@@ -33,6 +33,7 @@
             }
         ]
     },
+    "requiredBackgroundModes": ["audio", "location"],
     "lazyCodeLoading": "requiredComponents",
     "style": "v2",
     "sitemapLocation": "sitemap.json"
