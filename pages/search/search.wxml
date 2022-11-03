@@ -48,8 +48,18 @@
 
         <!-- 热搜榜 -->
         <view class="hot-search" wx:if="{{search_res.length === 0}}">
-            <view>
-            
+            <view class="hot-title">
+                <text class="title">热门搜索</text>
+            </view>
+            <view class="hot-list">
+                <block wx:for="{{hot_search}}" wx:key="this" wx:for-index="in">
+                    <view class="hot-item" bindtap="goToSearch" data-kw="{{item.searchWord}}">
+                        <text class="{{in < 4 ? 'highlight' : ''}}">{{in + 1}}</text>
+                        <text>{{item.searchWord}}</text>
+                        <image src="{{item.iconUrl}}"/>
+                        <text>{{item.score}}</text>
+                    </view>
+                </block>
             </view>
         </view>
     </view>

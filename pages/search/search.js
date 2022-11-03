@@ -78,7 +78,7 @@ Page({
         })
     },
 
-    // 点击搜索历史关键字搜索
+    // 点击搜索历史关键字或热门搜索关键字搜索
     goToSearch: function(e) {
         // console.log(e.currentTarget.dataset)
         wx.showLoading({
@@ -179,6 +179,8 @@ Page({
      */
     onUnload() {
         this.setData({
+            keyword: '',
+            history_search: [],
             hot_search: [],
             search_res: []
         })
