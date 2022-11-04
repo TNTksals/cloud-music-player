@@ -87,6 +87,8 @@ Page({
         })
         let mid = this.data.cur_music.id
         this.data.audio.title = this.data.cur_music.name
+        this.data.audio.coverImgUrl = this.data.cur_music.al.picUrl
+        this.data.audio.singer = this.data.cur_music.ar[0].name
         this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + 
         '&level=exhigh'
         this.observeAudio()
@@ -132,7 +134,7 @@ Page({
                     break
                 }
             }
-            var index = this.data.lrcindex
+            let index = this.data.lrcindex
             this.setData({
                 lrctop: (index - 4) * 40
             })
@@ -157,11 +159,26 @@ Page({
                 isplay: false
             })
             if (this.data.isloop) {
-                this.data.audio.stop()
-                this.observeAudio()
+                // this.data.audio.stop()
+                // this.observeAudio()
+                this.data.audio.pause()
+                let mid = this.data.cur_music.id
+                this.data.audio.title = this.data.cur_music.name
+                this.data.audio.coverImgUrl = this.data.cur_music.al.picUrl
+                this.data.audio.singer = this.data.cur_music.ar[0].name
+                this.data.audio.src = 'https://music.163.com/song/media/outer/url?id='
+                + mid + '&level=exhigh'
             } 
             else
                 this.nextdate()
+        })
+
+        this.data.audio.onPrev(() => {
+            this.predate()
+        })
+
+        this.data.audio.onNext(() => {
+            this.nextdate()
         })
     },
 
@@ -192,6 +209,8 @@ Page({
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
                     this.data.audio.title = this.data.cur_music.name
+                    this.data.audio.coverImgUrl = this.data.cur_music.al.picUrl
+                    this.data.audio.singer = this.data.cur_music.ar[0].name
                     this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 }
@@ -224,6 +243,8 @@ Page({
                     // console.log(this.data.nowindex, this.data.cur_music.id)
                     this.getSongInfo()
                     this.data.audio.title = this.data.cur_music.name
+                    this.data.audio.coverImgUrl = this.data.cur_music.al.picUrl
+                    this.data.audio.singer = this.data.cur_music.ar[0].name
                     this.data.audio.src = 'https://music.163.com/song/media/outer/url?id=' + mid + '&level=exhigh'
                     this.observeAudio()
                 } 
@@ -289,6 +310,6 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-        this.data.audio.destroy()
+        this.data.audio.stop()
     }
 })
