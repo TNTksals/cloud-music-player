@@ -46,7 +46,7 @@
             <view class="music-item">
                 <view class="textbox">
                     <text class="mname">{{item.name}}{{item.song.alias[0]?'('+item.song.alias[0]+')':''}}</text>
-                    <text class="msinger">{{item.song.artists[0].name}}{{item.song.album.name?'-'+item.song.album.name:''}}
+                    <text class="msinger">{{item.song.artists[0].name}}{{item.song.album.name?' - '+item.song.album.name:''}}
                     </text>
                 </view>
                 <view class="play-img" bindtap="playlink" data-index="{{index}}">
