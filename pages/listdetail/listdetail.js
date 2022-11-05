@@ -46,7 +46,7 @@ Page({
         let sid = this.data.list_id
         let ofs = this.data.offset
         wx.request({
-            url: `https://autumnfish.cn/playlist/track/all?id=${sid}&limit=10&offset=${ofs}`,
+            url: `https://autumnfish.cn/playlist/track/all?id=${sid}&limit=20&offset=${ofs}`,
             method: 'GET',
             success: (res) => {
                 // console.log(res)
