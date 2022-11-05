@@ -120,20 +120,6 @@ Page({
         })
 
         this.data.audio.onTimeUpdate(() => {
-            // 滑动条进度
-            let cur = {}
-            cur.m = parseInt(this.data.audio.currentTime / 60)
-            cur.s = parseInt(this.data.audio.currentTime - cur.m * 60)
-            let dur = {}
-            dur.m = parseInt(this.data.audio.duration / 60)
-            dur.s = parseInt(this.data.audio.duration - dur.m * 60)
-            this.setData({
-                fduration: format.formatTime(dur.m, dur.s, 'm:s'),
-                fcur_time: format.formatTime(cur.m, cur.s, 'm:s'),
-                duration: dur,
-                cur_time: cur
-            })
-
             // 歌词滚动
             var playtime = this.data.audio.currentTime
             var lrctimelist = this.data.lrclist
@@ -151,6 +137,20 @@ Page({
             let index = this.data.lrcindex
             this.setData({
                 lrctop: (index - 4) * 40
+            })
+
+            // 滑动条进度
+            let cur = {}
+            cur.m = parseInt(this.data.audio.currentTime / 60)
+            cur.s = parseInt(this.data.audio.currentTime - cur.m * 60)
+            let dur = {}
+            dur.m = parseInt(this.data.audio.duration / 60)
+            dur.s = parseInt(this.data.audio.duration - dur.m * 60)
+            this.setData({
+                fduration: format.formatTime(dur.m, dur.s, 'm:s'),
+                fcur_time: format.formatTime(cur.m, cur.s, 'm:s'),
+                duration: dur,
+                cur_time: cur
             })
         })
 
