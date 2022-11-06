@@ -139,7 +139,7 @@ Page({
      */
     onReachBottom() {
         this.setData({
-            offset: this.data.offset + 10
+            offset: this.data.offset + 20
         })
         this.getSheetSongs()
     }
